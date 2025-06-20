@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".ModeSelectFragment">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:text="Оберіть режим"
+        android:textColor="@color/textPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/btnEmojiMode"
+        style="@style/ModeButton"
+        android:text="🏀 Емодзі челендж" />
+
+
+    <Button
+        android:id="@+id/btnRiddleMode"
+        style="@style/ModeButton"
+        android:text="🧠 Спортивні загадки" />
+
+
+    <Button
+        android:id="@+id/btnTestMode"
+        style="@style/ModeButton"
+        android:text="📋 Спортивні тести" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="16dp"
+        android:background="@color/strokeColor" />
+
+    <TextView
+        android:id="@+id/tvTotalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Загальний рекорд: 0"
+        android:textColor="@color/textSecondary"
+        android:textSize="16sp" />
+</LinearLayout>
