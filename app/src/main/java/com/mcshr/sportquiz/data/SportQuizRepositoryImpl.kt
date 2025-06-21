@@ -1,7 +1,7 @@
 package com.mcshr.sportquiz.data
 
 import com.mcshr.sportquiz.domain.SportQuizRepository
-import com.mcshr.sportquiz.domain.model.QuizMode
+import com.mcshr.sportquiz.domain.entity.QuizMode
 import javax.inject.Inject
 
 class SportQuizRepositoryImpl @Inject constructor(

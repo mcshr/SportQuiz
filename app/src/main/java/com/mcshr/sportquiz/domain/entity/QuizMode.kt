@@ -1,4 +1,4 @@
-package com.mcshr.sportquiz.domain.model
+package com.mcshr.sportquiz.domain.entity
 
 enum class QuizMode {
     EMOJI,

@@ -1,7 +1,7 @@
 package com.mcshr.sportquiz.data
 
 import android.content.SharedPreferences
-import com.mcshr.sportquiz.domain.model.QuizMode
+import com.mcshr.sportquiz.domain.entity.QuizMode
 import javax.inject.Inject
 import androidx.core.content.edit
 

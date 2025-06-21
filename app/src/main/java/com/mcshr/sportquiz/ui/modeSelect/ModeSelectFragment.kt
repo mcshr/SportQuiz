@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.mcshr.sportquiz.R
 import com.mcshr.sportquiz.databinding.FragmentModeSelectBinding
-import com.mcshr.sportquiz.domain.model.QuizMode
+import com.mcshr.sportquiz.domain.entity.QuizMode
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

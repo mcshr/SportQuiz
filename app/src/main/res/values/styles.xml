@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="BigButton" parent="Widget.Material3.Button">
-        <item name="android:backgroundTint">@color/buttonGreen</item>
+        <item name="android:backgroundTint">@color/primaryGreen</item>
         <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">19sp</item>
@@ -36,6 +37,40 @@
         <item name="android:insetBottom">0dp</item>
     </style>
 
+    <style name="Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/background</item>
+        <item name="titleTextAppearance">@style/textAppbar</item>
+    </style>
+
+    <style name="textAppbar">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="PrimaryButtonGreen" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/primaryGreen</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="cornerRadius">@dimen/corner_radius</item>
+    </style>
+
+    <style name="OutlinedButtonGreen" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/primaryGreen</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/primaryGreen</item>
+        <item name="cornerRadius">@dimen/corner_radius</item>
+    </style>
+
+    <style name="TextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/textSecondary</item>
+    </style>
+
+    <style name="OptionButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_option_btn</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
 
 
 </resources>

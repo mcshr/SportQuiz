@@ -23,7 +23,17 @@
     <string name="riddle_mode">🧠 Спортивні загадки</string>
     <string name="test_mode">📋 Спортивні тести</string>
     <string name="total_score_format">Загальний рекорд: %1$d</string>
+    <string name="score_format">Рахунок: %1$d</string>
 
+    <string name="quiz_toolbar_title">Режим: %1$s</string>
+
+    <string name="hint">Підказка</string>
+    <string name="skip">Пропустити</string>
+    <string name="submit">Перевірити</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_format">Підказка: %1$s</string>
+    <string name="enter_answer">Введіть відповідь</string>
+    <string name="correct_answer">Правильно! +%1$s</string>
+    <string name="incorrect_answer">Неправильно!</string>
 </resources>

@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/quizFragment"
-        android:name="com.mcshr.sportquiz.ui.QuizFragment"
+        android:name="com.mcshr.sportquiz.ui.quiz.QuizFragment"
         android:label="fragment_quiz"
         tools:layout="@layout/fragment_quiz" >
         <argument
