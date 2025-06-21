@@ -15,8 +15,15 @@
     <string name="riddles_title">Спортивні загадки</string>
     <string name="riddles_text">Відгадай загадку на спортивну тему. Наприклад: "Не птах, а літає, у кільце мене кидають."</string>
 
-    <string name="tests_title">Тести</string>
+    <string name="tests_title">Спортивні тести</string>
     <string name="tests_text">Обери правильну відповідь із чотирьох варіантів. Класичний формат для перевірки знань.</string>
+
+    <string name="choose_mode">Оберіть режим</string>
+    <string name="emoji_mode">🏀 Емодзі челендж</string>
+    <string name="riddle_mode">🧠 Спортивні загадки</string>
+    <string name="test_mode">📋 Спортивні тести</string>
+    <string name="total_score_format">Загальний рекорд: %1$d</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

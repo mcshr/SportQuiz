@@ -1,4 +1,4 @@
-package com.mcshr.sportquiz
+package com.mcshr.sportquiz.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

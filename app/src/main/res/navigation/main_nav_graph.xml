@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.mcshr.sportquiz.HomeFragment"
+        android:name="com.mcshr.sportquiz.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,20 @@
     </fragment>
     <fragment
         android:id="@+id/modeSelectFragment"
-        android:name="com.mcshr.sportquiz.ModeSelectFragment"
+        android:name="com.mcshr.sportquiz.ui.modeSelect.ModeSelectFragment"
         android:label="fragment_mode_select"
-        tools:layout="@layout/fragment_mode_select" />
+        tools:layout="@layout/fragment_mode_select" >
+        <action
+            android:id="@+id/action_modeSelectFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.mcshr.sportquiz.ui.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" >
+        <argument
+            android:name="mode"
+            app:argType="string" />
+    </fragment>
 </navigation>
