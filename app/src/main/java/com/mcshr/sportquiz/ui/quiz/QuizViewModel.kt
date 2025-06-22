@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.mcshr.sportquiz.domain.entity.QuizMode
 import com.mcshr.sportquiz.domain.entity.QuizQuestion
+import com.mcshr.sportquiz.domain.interactors.CalculatePointsUseCase
 import com.mcshr.sportquiz.domain.interactors.GetQuestionsUseCase
 import com.mcshr.sportquiz.domain.interactors.SaveHighScoreUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,8 @@ import javax.inject.Inject
 class QuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     getQuestionsUseCase: GetQuestionsUseCase,
-    private val saveHighScoreUseCase: SaveHighScoreUseCase
+    private val saveHighScoreUseCase: SaveHighScoreUseCase,
+    private val calculatePointsUseCase: CalculatePointsUseCase
 ) : ViewModel() {
 
     val mode: QuizMode = QuizMode.valueOf(savedStateHandle.get<String>("mode") ?: "EMOJI")
@@ -46,13 +48,7 @@ class QuizViewModel @Inject constructor(
         val isCorrect = question.correctAnswer.any {
             it.trim().lowercase() == answer.trim().lowercase()
         }
-
-        val earnedPoints = when {
-            isCorrect -> 2
-            hintUsed -> 1
-            else -> 0
-        }
-
+        val earnedPoints = calculatePointsUseCase(isCorrect, hintUsed)
         _score.value = (_score.value ?: 0) + earnedPoints
         return isCorrect to earnedPoints
     }

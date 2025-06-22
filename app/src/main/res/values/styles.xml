@@ -3,10 +3,11 @@
 
     <style name="BigButton" parent="Widget.Material3.Button">
         <item name="android:backgroundTint">@color/primaryGreen</item>
-        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textColor">@color/background</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">19sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:paddingStart">32dp</item>
         <item name="android:paddingEnd">32dp</item>
         <item name="android:paddingTop">14dp</item>
@@ -23,6 +24,8 @@
     </style>
 
     <style name="ModeButton" parent="Widget.Material3.Button">
+        <item name="strokeColor">@color/strokeColor</item>
+        <item name="strokeWidth">2dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">16dp</item>
@@ -31,8 +34,6 @@
         <item name="android:textStyle">bold</item>
         <item name="android:backgroundTint">@color/conatainerBackground</item>
         <item name="cornerRadius">@dimen/corner_radius</item>
-        <item name="android:insetLeft">0dp</item>
-        <item name="android:insetRight">0dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
     </style>
@@ -50,13 +51,15 @@
 
     <style name="PrimaryButtonGreen" parent="Widget.Material3.Button">
         <item name="backgroundTint">@color/primaryGreen</item>
-        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textColor">@color/background</item>
+        <item name="android:textSize">15sp</item>
         <item name="cornerRadius">@dimen/corner_radius</item>
     </style>
 
     <style name="OutlinedButtonGreen" parent="Widget.Material3.Button.OutlinedButton">
         <item name="strokeColor">@color/primaryGreen</item>
         <item name="strokeWidth">2dp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/primaryGreen</item>
         <item name="cornerRadius">@dimen/corner_radius</item>
     </style>

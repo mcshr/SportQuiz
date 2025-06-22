@@ -32,135 +32,136 @@
         android:layout_height="1dp"
         app:dividerColor="@color/strokeColor" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/quizRoot"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvScore"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/quizRoot"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:padding="4dp"
-            android:textColor="@color/primaryGreen"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Рахунок: 0" />
+            android:baselineAligned="false"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tvQuestion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textColor="@color/primaryGreen"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Рахунок: 0" />
 
-            android:gravity="center"
-            android:padding="64dp"
-            android:textColor="@color/textPrimary"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvScore"
-            tools:text="🏀🐐" />
-
-        <EditText
-            android:id="@+id/etAnswer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_edit_text"
-            android:hint="@string/enter_answer"
-            android:inputType="textShortMessage"
-            android:padding="12dp"
-            android:textColor="@color/textPrimary"
-            android:textColorHint="@color/textSecondary"
-            android:textSize="16sp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQuestion" />
-
-        <LinearLayout
-            android:id="@+id/optionsContainer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etAnswer">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnOption1"
-                style="@style/OptionButton"
-                tools:text="Option 1" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnOption2"
-                style="@style/OptionButton"
-                android:layout_marginTop="12dp"
-                tools:text="Option 2" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnOption3"
-                style="@style/OptionButton"
-                android:layout_marginTop="12dp"
-                tools:text="Option 3" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnOption4"
-                style="@style/OptionButton"
-                android:layout_marginTop="12dp"
-                tools:text="Option 4" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/actionButtons"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/optionsContainer">
-
-            <Button
-                android:id="@+id/btnCheck"
-                style="@style/PrimaryButtonGreen"
+            <TextView
+                android:id="@+id/tvQuestion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/submit" />
 
-            <Space
-                android:layout_width="16dp"
-                android:layout_height="wrap_content" />
+                android:gravity="center"
+                android:padding="60dp"
+                android:textColor="@color/textPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvScore"
+                tools:text="🏀🐐" />
 
-            <Button
-                android:id="@+id/btnSkip"
-                style="@style/OutlinedButtonGreen"
+            <EditText
+                android:id="@+id/etAnswer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/skip" />
-        </LinearLayout>
+                android:background="@drawable/bg_edit_text"
+                android:hint="@string/enter_answer"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/textPrimary"
+                android:textColorHint="@color/textSecondary"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvQuestion" />
 
-        <Button
-            android:id="@+id/btnHint"
-            style="@style/TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/actionButtons" />
+            <LinearLayout
+                android:id="@+id/optionsContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etAnswer">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOption1"
+                    style="@style/OptionButton"
+                    tools:text="Option 1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOption2"
+                    style="@style/OptionButton"
+                    android:layout_marginTop="12dp"
+                    tools:text="Option 2" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOption3"
+                    style="@style/OptionButton"
+                    android:layout_marginTop="12dp"
+                    tools:text="Option 3" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOption4"
+                    style="@style/OptionButton"
+                    android:layout_marginTop="12dp"
+                    tools:text="Option 4" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/optionsContainer">
+
+                <Button
+                    android:id="@+id/btnCheck"
+                    style="@style/PrimaryButtonGreen"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/submit" />
+
+                <Button
+                    android:id="@+id/btnSkip"
+                    style="@style/OutlinedButtonGreen"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:text="@string/skip" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnHint"
+                style="@style/TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/hint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </LinearLayout>

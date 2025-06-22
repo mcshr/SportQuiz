@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="@string/rules_title"
+                    android:text="@string/rules_general_title"
                     android:textColor="@color/textPrimary"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -49,11 +49,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/rules_text"
+                    android:text="@string/rules_general_text"
                     android:textColor="@color/textSecondary"
                     android:textSize="15sp" />
             </LinearLayout>
 
+            <!-- Emoji челлендж -->
             <LinearLayout
                 style="@style/InfoCard"
                 android:orientation="vertical">
@@ -62,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="@string/emoji_title"
+                    android:text="@string/rules_emoji_title"
                     android:textColor="@color/textPrimary"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -71,11 +72,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/emoji_text"
+                    android:text="@string/rules_emoji_text"
                     android:textColor="@color/textSecondary"
                     android:textSize="15sp" />
             </LinearLayout>
 
+            <!-- Загадки -->
             <LinearLayout
                 style="@style/InfoCard"
                 android:orientation="vertical">
@@ -84,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="@string/riddles_title"
+                    android:text="@string/rules_riddle_title"
                     android:textColor="@color/textPrimary"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -93,11 +95,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/riddles_text"
+                    android:text="@string/rules_riddle_text"
                     android:textColor="@color/textSecondary"
                     android:textSize="15sp" />
             </LinearLayout>
 
+            <!-- Тесты -->
             <LinearLayout
                 style="@style/InfoCard"
                 android:orientation="vertical">
@@ -106,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="@string/tests_title"
+                    android:text="@string/rules_test_title"
                     android:textColor="@color/textPrimary"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -115,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
-                    android:text="@string/tests_text"
+                    android:text="@string/rules_test_text"
                     android:textColor="@color/textSecondary"
                     android:textSize="15sp" />
             </LinearLayout>

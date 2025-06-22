@@ -14,6 +14,7 @@ import com.mcshr.sportquiz.R
 import com.mcshr.sportquiz.databinding.FragmentQuizBinding
 import com.mcshr.sportquiz.domain.entity.QuizMode
 import com.mcshr.sportquiz.domain.entity.QuizQuestion
+import com.mcshr.sportquiz.ui.utils.setDebounceOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -36,6 +37,7 @@ class QuizFragment : Fragment() {
     }
 
     private var selectedOption: String? = null
+    private var isInteractionLocked = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,10 +79,12 @@ class QuizFragment : Fragment() {
         }
 
         binding.btnSkip.setOnClickListener {
+            if (isInteractionLocked) return@setOnClickListener
             viewModel.nextQuestion()
         }
 
         binding.btnHint.setOnClickListener {
+            if (isInteractionLocked) return@setOnClickListener
             val hint = viewModel.currentQuestion.value?.hint
             if (!hint.isNullOrBlank()) {
                 viewModel.useHint()
@@ -88,7 +92,7 @@ class QuizFragment : Fragment() {
             }
         }
 
-        binding.btnCheck.setOnClickListener {
+        binding.btnCheck.setDebounceOnClickListener {
             val answer = when (viewModel.mode) {
                 QuizMode.TEST -> selectedOption
                 QuizMode.RIDDLE,
@@ -97,8 +101,9 @@ class QuizFragment : Fragment() {
 
             if (answer.isNullOrBlank()) {
                 showToast(getString(R.string.enter_answer))
-                return@setOnClickListener
+                return@setDebounceOnClickListener
             }
+
 
             val (isCorrect, points) = viewModel.submitAnswer(answer)
 
@@ -128,7 +133,6 @@ class QuizFragment : Fragment() {
 
         binding.btnHint.visibility = if (question.hint.isNullOrBlank()) View.GONE else View.VISIBLE
 
-
         when (viewModel.mode) {
             QuizMode.TEST -> {
                 binding.etAnswer.visibility = View.GONE
@@ -136,6 +140,7 @@ class QuizFragment : Fragment() {
                 question.options?.forEachIndexed { index, text ->
                     optionButtons[index].text = text
                 }
+                optionButtons.forEach { it.isSelected=false }
             }
 
             QuizMode.RIDDLE,
@@ -151,15 +156,21 @@ class QuizFragment : Fragment() {
 
     private fun goToNextQuestionWithDelay() {
         lifecycleScope.launch {
+            isInteractionLocked=true
             delay(1000)
+            isInteractionLocked= false
             viewModel.nextQuestion()
         }
     }
 
     private fun navigateToResult() {
         viewModel.saveFinalScore()
-        findNavController().popBackStack()
-        //TODO result screen
+        val score = viewModel.score.value?:0
+        val mode = viewModel.mode.name
+        val action = QuizFragmentDirections.actionQuizFragmentToResultFragment(
+            resultScore = score, mode = mode
+        )
+        findNavController().navigate(action)
     }
 
     private fun showToast(text: String) {
