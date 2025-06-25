@@ -43,17 +43,32 @@
             android:baselineAligned="false"
             android:padding="16dp">
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/QuizProgressBar"
+                android:max="10"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Питання 1 із 10"
+                style="@style/QuizProgressText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+
             <TextView
                 android:id="@+id/tvScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:padding="4dp"
-                android:textColor="@color/primaryGreen"
-                android:textSize="14sp"
-                android:textStyle="bold"
+                style="@style/QuizProgressText"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar"
                 tools:text="Рахунок: 0" />
 
             <TextView

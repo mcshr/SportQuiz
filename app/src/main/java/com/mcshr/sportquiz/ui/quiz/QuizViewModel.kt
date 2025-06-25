@@ -25,6 +25,10 @@ class QuizViewModel @Inject constructor(
     private val questions: List<QuizQuestion> = getQuestionsUseCase(mode)
     private var currentIndex = 0
     private var hintUsed = false
+    val totalQuestions = questions.size
+
+    private val _currentQuestionIndex = MutableLiveData(1)
+    val currentQuestionIndex: LiveData<Int> = _currentQuestionIndex
 
     private val _currentQuestion = MutableLiveData<QuizQuestion?>()
     val currentQuestion: LiveData<QuizQuestion?>
@@ -41,6 +45,7 @@ class QuizViewModel @Inject constructor(
     private fun loadCurrentQuestion() {
         hintUsed = false
         _currentQuestion.value = questions.getOrNull(currentIndex)
+        _currentQuestionIndex.value = currentIndex + 1
     }
 
     fun submitAnswer(answer: String): Pair<Boolean, Int> {
@@ -54,7 +59,7 @@ class QuizViewModel @Inject constructor(
     }
 
     fun saveFinalScore() {
-        val finalScore = score.value?:0
+        val finalScore = score.value ?: 0
         saveHighScoreUseCase(mode, finalScore)
     }
 

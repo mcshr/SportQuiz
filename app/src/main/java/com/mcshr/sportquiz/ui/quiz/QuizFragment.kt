@@ -70,6 +70,15 @@ class QuizFragment : Fragment() {
             binding.tvScore.text = getString(R.string.score_format, it)
         }
 
+        viewModel.currentQuestionIndex.observe(viewLifecycleOwner) { index ->
+            val total = viewModel.totalQuestions
+            if(index<=total){
+                binding.tvProgress.text = getString(R.string.progress_text_format, index, total)
+            }
+            binding.progressBar.max = total
+            binding.progressBar.progress = index-1
+        }
+
 
         optionButtons.forEach { button ->
             button.setOnClickListener {

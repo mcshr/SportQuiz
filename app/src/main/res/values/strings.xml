@@ -57,5 +57,6 @@
     <string name="high_score_format">Ваш рекорд у цьому режимі: %1$d</string>
     <string name="btn_retry">🔁 Пройти ще раз</string>
     <string name="btn_home">🏠 На головну</string>
+    <string name="progress_text_format">Питання %1$d із %2$d</string>
 
 </resources>
