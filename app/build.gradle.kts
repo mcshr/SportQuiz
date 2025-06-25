@@ -22,7 +22,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "AD_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
+        }
         release {
+            buildConfigField("String", "AD_BANNER_ID", "\"ca-app-pub-1234567890/9214589741\"")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -30,6 +35,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -38,6 +44,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
 }
@@ -65,4 +72,6 @@ dependencies {
     //Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
     implementation("com.google.firebase:firebase-firestore-ktx")
+    //AdMob
+    implementation("com.google.android.gms:play-services-ads:24.4.0")
 }

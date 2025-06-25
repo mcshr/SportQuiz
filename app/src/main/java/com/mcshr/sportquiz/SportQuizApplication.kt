@@ -2,6 +2,7 @@ package com.mcshr.sportquiz
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.gms.ads.MobileAds
 import com.mcshr.sportquiz.data.firestore.QuizDataUploader
 import dagger.hilt.android.HiltAndroidApp
 import dagger.multibindings.IntKey
@@ -14,6 +15,7 @@ class SportQuizApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        //quizDataUploader.uploadAll()
+        MobileAds.initialize(this)
+    //quizDataUploader.uploadAll()
     }
 }
