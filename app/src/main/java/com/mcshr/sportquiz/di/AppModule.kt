@@ -2,6 +2,7 @@ package com.mcshr.sportquiz.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.firebase.firestore.FirebaseFirestore
 import com.mcshr.sportquiz.data.SportQuizPreferences
 import dagger.Module
 import dagger.Provides
@@ -19,15 +20,22 @@ class AppModule {
     @Singleton
     fun provideSharedPrefs(
         @ApplicationContext context: Context
-    ): SharedPreferences{
-        return  context.getSharedPreferences("SportQuizPrefs", Context.MODE_PRIVATE)
+    ): SharedPreferences {
+        return context.getSharedPreferences("SportQuizPrefs", Context.MODE_PRIVATE)
     }
+
     @Provides
     @Singleton
     fun provideSportQuizPrefs(
         prefs: SharedPreferences
-    ): SportQuizPreferences{
+    ): SportQuizPreferences {
         return SportQuizPreferences(prefs)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFirestore(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
     }
 
 }

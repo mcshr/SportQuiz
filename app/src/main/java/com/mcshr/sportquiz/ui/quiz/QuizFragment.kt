@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.mcshr.sportquiz.R
@@ -70,8 +71,18 @@ class QuizFragment : Fragment() {
             binding.tvScore.text = getString(R.string.score_format, it)
         }
 
-        viewModel.currentQuestionIndex.observe(viewLifecycleOwner) { index ->
-            val total = viewModel.totalQuestions
+        val mediatorLiveData = MediatorLiveData<Pair<Int, Int>>()
+        mediatorLiveData.addSource(viewModel.currentQuestionIndex) { index ->
+            val total = viewModel.totalQuestions.value ?: 0
+            mediatorLiveData.value = index to total
+        }
+
+        mediatorLiveData.addSource(viewModel.totalQuestions) { total ->
+            val index = viewModel.currentQuestionIndex.value ?: 0
+            mediatorLiveData.value = index to total
+        }
+
+        mediatorLiveData.observe(viewLifecycleOwner) { (index,total) ->
             if(index<=total){
                 binding.tvProgress.text = getString(R.string.progress_text_format, index, total)
             }

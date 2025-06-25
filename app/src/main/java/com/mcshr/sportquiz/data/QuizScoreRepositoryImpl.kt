@@ -1,12 +1,12 @@
 package com.mcshr.sportquiz.data
 
-import com.mcshr.sportquiz.domain.SportQuizRepository
+import com.mcshr.sportquiz.domain.QuizScoreRepository
 import com.mcshr.sportquiz.domain.entity.QuizMode
 import javax.inject.Inject
 
-class SportQuizRepositoryImpl @Inject constructor(
+class QuizScoreRepositoryImpl @Inject constructor(
     private val preferences: SportQuizPreferences
-): SportQuizRepository {
+): QuizScoreRepository {
     override fun getHighScore(mode: QuizMode): Int {
         return preferences.getHighScoreForMode(mode)
     }
