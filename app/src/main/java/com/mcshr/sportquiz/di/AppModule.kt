@@ -3,6 +3,8 @@ package com.mcshr.sportquiz.di
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.MemoryCacheSettings
 import com.mcshr.sportquiz.data.SportQuizPreferences
 import dagger.Module
 import dagger.Provides
@@ -35,7 +37,13 @@ class AppModule {
     @Provides
     @Singleton
     fun provideFirestore(): FirebaseFirestore {
-        return FirebaseFirestore.getInstance()
+        return FirebaseFirestore.getInstance().apply {
+            /* Отключить кэширование
+            firestoreSettings = FirebaseFirestoreSettings.Builder()
+                .setLocalCacheSettings(MemoryCacheSettings.newBuilder().build())
+                .build()
+                */
+        }
     }
 
 }

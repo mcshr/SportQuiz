@@ -1,5 +1,6 @@
 package com.mcshr.sportquiz.ui.quiz
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
@@ -17,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    getQuestionsUseCase: GetQuestionsUseCase,
+    private val getQuestionsUseCase: GetQuestionsUseCase,
     private val saveHighScoreUseCase: SaveHighScoreUseCase,
     private val calculatePointsUseCase: CalculatePointsUseCase
 ) : ViewModel() {
@@ -44,11 +45,31 @@ class QuizViewModel @Inject constructor(
     val score: LiveData<Int>
         get() = _score
 
+    private val _loadingState = MutableLiveData(LoadingState.LOADING)
+    val loadingState: LiveData<LoadingState>
+        get() = _loadingState
+
+    enum class LoadingState {
+        LOADING, SUCCESS, ERROR
+    }
+
     init {
+        loadQuestions()
+    }
+
+    fun loadQuestions(){
         viewModelScope.launch {
-            questions = getQuestionsUseCase(mode)
-            _totalQuestions.value = questions.size
-            loadCurrentQuestion()
+            _loadingState.value = LoadingState.LOADING
+            val loaded = getQuestionsUseCase(mode)
+            if (loaded.isNotEmpty()) {
+                questions = loaded
+                questions = getQuestionsUseCase(mode)
+                _totalQuestions.value = questions.size
+                loadCurrentQuestion()
+                _loadingState.value = LoadingState.SUCCESS
+            } else {
+                _loadingState.value = LoadingState.ERROR
+            }
         }
     }
 
@@ -59,8 +80,11 @@ class QuizViewModel @Inject constructor(
     }
 
     fun submitAnswer(answer: String): Pair<Boolean, Int> {
+        Log.d("asdasdas","_currentQuestion.value = ${_currentQuestion.value}\n ")
         val question = _currentQuestion.value ?: return false to 0
         val isCorrect = question.correctAnswer.any {
+            Log.d("sadasd","it.trim().lowercase() = ${it.trim().lowercase()}\n " +
+                    "answer.trim().lowercase() = ${answer.trim().lowercase()}")
             it.trim().lowercase() == answer.trim().lowercase()
         }
         val earnedPoints = calculatePointsUseCase(isCorrect, hintUsed)

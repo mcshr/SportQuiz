@@ -6,7 +6,7 @@ import com.mcshr.sportquiz.domain.entity.QuizQuestion
 fun QuizQuestionDto.toDomain(): QuizQuestion{
     return QuizQuestion(
         text = text,
-        correctAnswer = correctAnswer,
+        correctAnswer = correctAnswers,
         options = options,
         hint = hint
     )

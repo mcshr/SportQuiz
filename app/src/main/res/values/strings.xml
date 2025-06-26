@@ -58,5 +58,6 @@
     <string name="btn_retry">🔁 Пройти ще раз</string>
     <string name="btn_home">🏠 На головну</string>
     <string name="progress_text_format">Питання %1$d із %2$d</string>
+    <string name="ad_not_ready">Реклама ще не завантажена</string>
 
 </resources>

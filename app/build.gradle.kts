@@ -24,9 +24,12 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "AD_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "AD_REWARDED_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
         }
         release {
+            //подставить свои значения
             buildConfigField("String", "AD_BANNER_ID", "\"ca-app-pub-1234567890/9214589741\"")
+            buildConfigField("String", "AD_REWARDED_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
 
             isMinifyEnabled = false
             proguardFiles(

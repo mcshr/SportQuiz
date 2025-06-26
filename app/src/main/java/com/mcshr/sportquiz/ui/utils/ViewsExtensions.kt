@@ -6,7 +6,7 @@ fun View.setDebounceOnClickListener(onClick: (View) -> Unit) {
     var lastClickTime = 0L
     setOnClickListener {
         val currentTime = System.currentTimeMillis()
-        if ( currentTime - lastClickTime > 1000L) {
+        if ( currentTime - lastClickTime > 100L) {
             lastClickTime = currentTime
             onClick(it)
         }
