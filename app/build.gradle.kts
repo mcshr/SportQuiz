@@ -75,6 +75,7 @@ dependencies {
     //Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
     implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation(libs.firebase.messaging.ktx)
     //AdMob
     implementation("com.google.android.gms:play-services-ads:24.4.0")
 }
