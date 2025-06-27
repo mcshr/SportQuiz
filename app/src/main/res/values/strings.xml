@@ -62,5 +62,8 @@
     <string name="singleplayer_mode">Один гравець</string>
     <string name="multiplayer_mode">Мультиплеєр</string>
     <string name="rules">Правила</string>
+    <string name="error_no_room">Кімната була видалена або втрачена</string>
+    <string name="retry_load_room">Спробувати ще раз</string>
+    <string name="go_to_home_screen">На головний екран</string>
 
 </resources>
