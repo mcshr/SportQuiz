@@ -29,15 +29,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-//        FirebaseMessaging.getInstance().token
-//            .addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    val token = task.result
-//                    Log.d("FCM_TOKEN", "Current token: $token")
-//                } else {
-//                    Log.e("FCM_TOKEN", "Fetching FCM registration token failed", task.exception)
-//                }
-//            }
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val token = task.result
+                    Log.d("FCM_TOKEN", "Current token: $token")
+                } else {
+                    Log.e("FCM_TOKEN", "Fetching FCM registration token failed", task.exception)
+                }
+            }
 
     }
 

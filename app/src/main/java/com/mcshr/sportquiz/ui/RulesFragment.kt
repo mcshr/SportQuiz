@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.mcshr.sportquiz.databinding.FragmentHomeBinding
+import com.mcshr.sportquiz.databinding.FragmentRulesBinding
 
 
-class HomeFragment : Fragment() {
+class RulesFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentRulesBinding? = null
     private val binding
         get() = _binding ?: throw RuntimeException("FragmentHomeBinding is null")
 
@@ -20,14 +20,14 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentRulesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         binding.startButton.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToModeSelectFragment()
+            val action = RulesFragmentDirections.actionHomeFragmentToModeSelectFragment()
             findNavController().navigate(action)
         }
 

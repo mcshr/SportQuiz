@@ -38,11 +38,11 @@ class AppModule {
     @Singleton
     fun provideFirestore(): FirebaseFirestore {
         return FirebaseFirestore.getInstance().apply {
-            /* Отключить кэширование
+            /* Отключить кэширование*/
             firestoreSettings = FirebaseFirestoreSettings.Builder()
                 .setLocalCacheSettings(MemoryCacheSettings.newBuilder().build())
                 .build()
-                */
+
         }
     }
 

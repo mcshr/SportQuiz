@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="24dp"
     tools:context=".ui.modeSelect.ModeSelectFragment">
 
