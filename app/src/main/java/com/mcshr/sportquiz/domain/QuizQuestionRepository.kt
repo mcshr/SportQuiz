@@ -5,4 +5,5 @@ import com.mcshr.sportquiz.domain.entity.QuizQuestion
 
 interface QuizQuestionRepository {
     suspend fun getQuestions(mode: QuizMode): List<QuizQuestion>
+    fun saveQuestionAsPassed(question: QuizQuestion)
 }

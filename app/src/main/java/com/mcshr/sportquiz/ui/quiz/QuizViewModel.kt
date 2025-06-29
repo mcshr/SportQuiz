@@ -10,6 +10,7 @@ import com.mcshr.sportquiz.domain.entity.QuizMode
 import com.mcshr.sportquiz.domain.entity.QuizQuestion
 import com.mcshr.sportquiz.domain.interactors.CalculatePointsUseCase
 import com.mcshr.sportquiz.domain.interactors.GetQuestionsUseCase
+import com.mcshr.sportquiz.domain.interactors.PassQuestionUseCase
 import com.mcshr.sportquiz.domain.interactors.SaveHighScoreUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -20,7 +21,8 @@ class QuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val getQuestionsUseCase: GetQuestionsUseCase,
     private val saveHighScoreUseCase: SaveHighScoreUseCase,
-    private val calculatePointsUseCase: CalculatePointsUseCase
+    private val calculatePointsUseCase: CalculatePointsUseCase,
+    private val passQuestionUseCase: PassQuestionUseCase
 ) : ViewModel() {
 
     val mode: QuizMode = QuizMode.valueOf(savedStateHandle.get<String>("mode") ?: "EMOJI")
@@ -99,6 +101,9 @@ class QuizViewModel @Inject constructor(
 
 
     fun nextQuestion() {
+        currentQuestion.value?.let {
+            passQuestionUseCase(it)
+        }
         currentIndex++
         loadCurrentQuestion()
     }

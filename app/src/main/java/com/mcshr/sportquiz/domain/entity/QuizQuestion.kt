@@ -4,5 +4,7 @@ data class QuizQuestion(
     val text: String,
     val correctAnswer: List<String>,
     val options: List<String>? = null, // tests
-    val hint: String? = null           // emoji riddle
+    val hint: String? = null,           // emoji riddle
+    val id : String? = null,
+    val isPassed: Boolean = false
 )

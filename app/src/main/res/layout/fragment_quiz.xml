@@ -33,41 +33,40 @@
         app:dividerColor="@color/strokeColor" />
 
 
-        <LinearLayout
-            android:id="@+id/loadingScreen"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:gravity="center">
+    <LinearLayout
+        android:id="@+id/loadingScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-            <ProgressBar
-                android:id="@+id/loadingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
+        <ProgressBar
+            android:id="@+id/loadingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/errorMessage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Не вдалося завантажити питання."
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:visibility="gone"
-                android:padding="16dp"
-                android:layout_marginBottom="20dp"
-                android:textColor="@color/textPrimary"
-                />
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:padding="16dp"
+            android:text="Не вдалося завантажити питання."
+            android:textAlignment="center"
+            android:textColor="@color/textPrimary"
+            android:textSize="20sp"
+            android:visibility="gone" />
 
-            <Button
-                android:id="@+id/retryButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Спробувати ще раз"
-                android:visibility="gone"
-                style="@style/PrimaryButtonGreen"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/retryButton"
+            style="@style/PrimaryButtonGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Спробувати ще раз"
+            android:visibility="gone" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -91,19 +90,31 @@
 
             <TextView
                 android:id="@+id/tvProgress"
+                style="@style/QuizProgressText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/tvQuestionIsNew"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar"
+                tools:text="Питання 1 із 10" />
+
+            <TextView
+                android:id="@+id/tvQuestionIsNew"
+                style="@style/QuizProgressText.secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Питання 1 із 10"
-                style="@style/QuizProgressText"
+                android:text="NEW!"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
 
             <TextView
                 android:id="@+id/tvScore"
+                style="@style/QuizProgressText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/QuizProgressText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar"
                 tools:text="Рахунок: 0" />

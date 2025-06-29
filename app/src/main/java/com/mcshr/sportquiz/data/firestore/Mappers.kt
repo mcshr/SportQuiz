@@ -8,6 +8,7 @@ fun QuizQuestionDto.toDomain(): QuizQuestion{
         text = text,
         correctAnswer = correctAnswers,
         options = options,
-        hint = hint
+        hint = hint,
+        id = id
     )
 }

@@ -226,6 +226,7 @@ class QuizFragment : Fragment() {
 
     private fun showQuestion(question: QuizQuestion) {
         binding.tvQuestion.text = question.text
+        binding.tvQuestionIsNew.isVisible = !question.isPassed
 
         selectedOption = null
 

@@ -16,9 +16,27 @@ class SportQuizPreferences @Inject constructor(
     }
     private fun QuizMode.toStringKey(): String{
         return when(this){
-            QuizMode.EMOJI -> "score_emoji_key"
-            QuizMode.RIDDLE -> "score_riddle_key"
-            QuizMode.TEST -> "score_test_key"
+            QuizMode.EMOJI -> SCORE_EMOJI_KEY
+            QuizMode.RIDDLE -> SCORE_RIDDLE_KEY
+            QuizMode.TEST ->  SCORE_TEST_KEY
         }
     }
+
+    fun markAsPassed(questionId:String){
+        val currentSet = getPassedQuestionIds().toMutableSet()
+        currentSet.add(questionId)
+        prefs.edit{ putStringSet(PASSED_QUESTIONS_KEY, currentSet)}
+    }
+
+    fun getPassedQuestionIds():Set<String>{
+        return prefs.getStringSet(PASSED_QUESTIONS_KEY, emptySet())?:emptySet()
+    }
+
+    companion object{
+        private const val PASSED_QUESTIONS_KEY = "passed_questions_key"
+        private const val SCORE_EMOJI_KEY ="score_emoji_key"
+        private const val SCORE_RIDDLE_KEY = "score_riddle_key"
+        private const val SCORE_TEST_KEY = "score_test_key"
+    }
+
 }
