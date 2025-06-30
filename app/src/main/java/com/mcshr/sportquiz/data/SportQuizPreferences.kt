@@ -32,11 +32,18 @@ class SportQuizPreferences @Inject constructor(
         return prefs.getStringSet(PASSED_QUESTIONS_KEY, emptySet())?:emptySet()
     }
 
+    fun getNickname(): String = prefs.getString( NICKNAME_KEY, "") ?: ""
+
+    fun saveNickname(nickname: String) {
+        prefs.edit { putString( NICKNAME_KEY, nickname) }
+    }
+
     companion object{
         private const val PASSED_QUESTIONS_KEY = "passed_questions_key"
         private const val SCORE_EMOJI_KEY ="score_emoji_key"
         private const val SCORE_RIDDLE_KEY = "score_riddle_key"
         private const val SCORE_TEST_KEY = "score_test_key"
+        private const val NICKNAME_KEY = "nickname"
     }
 
 }

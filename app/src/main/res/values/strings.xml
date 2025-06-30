@@ -55,15 +55,29 @@
     <string name="result_mode_test">Режим: Спортивні тести</string>
     <string name="your_score_format">Ваш результат: %1$d</string>
     <string name="high_score_format">Ваш рекорд у цьому режимі: %1$d</string>
-    <string name="btn_retry">🔁 Пройти ще раз</string>
+    <string name="btn_retry">🔁 Зіграти ще раз</string>
     <string name="btn_home">🏠 На головну</string>
-    <string name="progress_text_format">Питання %1$d із %2$d</string>
+    <string name="progress_text_format">%1$d / %2$d</string>
     <string name="ad_not_ready">Реклама ще не завантажена</string>
     <string name="singleplayer_mode">Один гравець</string>
     <string name="multiplayer_mode">Мультиплеєр</string>
     <string name="rules">Правила</string>
     <string name="error_no_room">Кімната була видалена або втрачена</string>
-    <string name="retry_load_room">Спробувати ще раз</string>
+    <string name="try_again">Спробувати ще раз</string>
     <string name="go_to_home_screen">На головний екран</string>
+    <string name="error_no_questions">Не вдалося завантажити питання.</string>
+    <string name="player_score_format">%1$s : %2$s</string>
+    <string name="waiting_for_player">Очікування іншого гравця</string>
+    <string name="loading_questions">Завантаження питань</string>
+    <string name="not_your_turn">Зараз ходить інший гравець</string>
+
+    <string name="vs">VS</string>
+    <string name="win">Перемога</string>
+    <string name="lose">Поразка</string>
+    <string name="draw">Нічия</string>
+    <string name="find_game">Знайти гру</string>
+    <string name="enter_nicname">Введіть нікнейм</string>
+    <string name="your_nickname">Ваш никнейм</string>
+    <string name="new_question">NEW!</string>
 
 </resources>

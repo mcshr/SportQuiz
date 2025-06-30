@@ -4,10 +4,14 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.mcshr.sportquiz.data.firestore.dto.MultiplayerRoomDto
 import com.mcshr.sportquiz.data.firestore.dto.PlayerDto
+import com.mcshr.sportquiz.data.firestore.toDomain
+import com.mcshr.sportquiz.data.firestore.toDto
 import com.mcshr.sportquiz.domain.MultiplayerRepository
 import com.mcshr.sportquiz.domain.entity.JoinResult
+import com.mcshr.sportquiz.domain.entity.MultiplayerRoom
 import com.mcshr.sportquiz.domain.entity.QuizMode
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -56,6 +60,7 @@ class MultiplayerRepositoryImpl @Inject constructor(
                 createRoom(playerName, mode)
             }
         } catch (e: Exception) {
+            Log.e("FIREBASE", e.message.toString())
             null
         }
     }
@@ -106,23 +111,37 @@ class MultiplayerRepositoryImpl @Inject constructor(
                     transaction.delete(room)
                 }
             }.await()
-        } catch (e: Exception) { }
+        } catch (e: Exception) {
+            Log.e("FIREBASE", e.message.toString())
+        }
     }
 
-    override fun getRoomLiveData(roomId: String): LiveData<MultiplayerRoomDto?> {
-        val liveData = MutableLiveData<MultiplayerRoomDto?>()
+    override fun getRoomLiveData(roomId: String): LiveData<MultiplayerRoom?> {
+        val liveData = MutableLiveData<MultiplayerRoom?>()
         rooms.document(roomId).addSnapshotListener { snapshot, error ->
             if (error != null) {
                 liveData.postValue(null)
                 return@addSnapshotListener
             }
             if (snapshot != null && snapshot.exists()) {
-                liveData.postValue(snapshot.toObject(MultiplayerRoomDto::class.java))
+                val dto = snapshot.toObject(MultiplayerRoomDto::class.java)
+                liveData.postValue(dto?.toDomain(snapshot.id))
             } else {
                 liveData.postValue(null)
             }
         }
         return liveData
+    }
+
+    override suspend fun updateRoom(room: MultiplayerRoom) {
+        try {
+            rooms.document(room.id)
+                .set(room.toDto(), SetOptions.merge())
+                .await()
+        } catch (e: Exception){
+            Log.e("FIREBASE", e.message.toString())
+        }
+       room.toDto()
     }
 
     override suspend fun finishRoom(roomId: String) {
@@ -131,6 +150,7 @@ class MultiplayerRepositoryImpl @Inject constructor(
                 .update("status", "finished")
                 .await()
         } catch (e: Exception) {
+            Log.e("FIREBASE", e.message.toString())
         }
     }
 }

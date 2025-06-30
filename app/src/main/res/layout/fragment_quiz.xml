@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:padding="16dp"
-            android:text="Не вдалося завантажити питання."
+            android:text="@string/error_no_questions"
             android:textAlignment="center"
             android:textColor="@color/textPrimary"
             android:textSize="20sp"
@@ -64,168 +64,48 @@
             style="@style/PrimaryButtonGreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Спробувати ще раз"
+            android:text="@string/try_again"
             android:visibility="gone" />
     </LinearLayout>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/progressContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:padding="16dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/quizRoot"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/QuizProgressBar"
+            android:max="10"
+            android:progress="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvProgress"
+            style="@style/QuizProgressText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:padding="16dp">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="@style/QuizProgressBar"
-                android:max="10"
-                android:progress="0"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvProgress"
-                style="@style/QuizProgressText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/tvQuestionIsNew"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar"
-                tools:text="Питання 1 із 10" />
-
-            <TextView
-                android:id="@+id/tvQuestionIsNew"
-                style="@style/QuizProgressText.secondary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NEW!"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+            app:layout_constraintEnd_toStartOf="@+id/tvScore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            tools:text="Питання 1 із 10" />
 
 
-            <TextView
-                android:id="@+id/tvScore"
-                style="@style/QuizProgressText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar"
-                tools:text="Рахунок: 0" />
+        <TextView
+            android:id="@+id/tvScore"
+            style="@style/QuizProgressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            tools:text="Рахунок: 0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/layout_question"
+        layout="@layout/item_question"/>
 
-            <TextView
-                android:id="@+id/tvQuestion"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-
-                android:gravity="center"
-                android:padding="60dp"
-                android:textColor="@color/textPrimary"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvScore"
-                tools:text="🏀🐐" />
-
-            <EditText
-                android:id="@+id/etAnswer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_edit_text"
-                android:hint="@string/enter_answer"
-                android:inputType="text"
-                android:padding="12dp"
-                android:textColor="@color/textPrimary"
-                android:textColorHint="@color/textSecondary"
-                android:textSize="16sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvQuestion" />
-
-            <LinearLayout
-                android:id="@+id/optionsContainer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etAnswer">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnOption1"
-                    style="@style/OptionButton"
-                    tools:text="Option 1" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnOption2"
-                    style="@style/OptionButton"
-                    android:layout_marginTop="12dp"
-                    tools:text="Option 2" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnOption3"
-                    style="@style/OptionButton"
-                    android:layout_marginTop="12dp"
-                    tools:text="Option 3" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnOption4"
-                    style="@style/OptionButton"
-                    android:layout_marginTop="12dp"
-                    tools:text="Option 4" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/optionsContainer">
-
-                <Button
-                    android:id="@+id/btnCheck"
-                    style="@style/PrimaryButtonGreen"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/submit" />
-
-                <Button
-                    android:id="@+id/btnSkip"
-                    style="@style/OutlinedButtonGreen"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:text="@string/skip" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnHint"
-                style="@style/TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/hint"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearLayout" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 </LinearLayout>

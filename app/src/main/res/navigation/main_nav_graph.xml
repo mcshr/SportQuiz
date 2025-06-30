@@ -64,12 +64,44 @@
             android:id="@+id/action_menuFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_multiplayerQuizFragment"
-            app:destination="@id/multiplayerQuizFragment" />
+            android:id="@+id/action_menuFragment_to_multiplayerSetupFragment"
+            app:destination="@id/multiplayerSetupFragment" />
     </fragment>
     <fragment
         android:id="@+id/multiplayerQuizFragment"
         android:name="com.mcshr.sportquiz.ui.multiplayerQuiz.MultiplayerQuizFragment"
         android:label="fragment_multiplayer_quiz"
-        tools:layout="@layout/fragment_multiplayer_quiz" />
+        tools:layout="@layout/fragment_multiplayer_quiz" >
+        <action
+            android:id="@+id/action_multiplayerQuizFragment_to_multiplayerResultFragment"
+            app:destination="@id/multiplayerResultFragment"
+            app:popUpTo="@id/menuFragment" />
+        <argument
+            android:name="mode"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiplayerResultFragment"
+        android:name="com.mcshr.sportquiz.ui.multiplayerResult.MultiplayerResultFragment"
+        android:label="fragment_multiplayer_result"
+        tools:layout="@layout/fragment_multiplayer_result" >
+        <argument
+            android:name="room"
+            app:argType="com.mcshr.sportquiz.domain.entity.MultiplayerRoom" />
+        <argument
+            android:name="playerNumber"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_multiplayerResultFragment_to_multiplayerSetupFragment"
+            app:destination="@id/multiplayerSetupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiplayerSetupFragment"
+        android:name="com.mcshr.sportquiz.ui.multiplayerSetup.MultiplayerSetupFragment"
+        android:label="fragment_multiplayer_setup"
+        tools:layout="@layout/fragment_multiplayer_setup" >
+        <action
+            android:id="@+id/action_multiplayerSetupFragment_to_multiplayerQuizFragment"
+            app:destination="@id/multiplayerQuizFragment" />
+    </fragment>
 </navigation>

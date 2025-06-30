@@ -31,7 +31,7 @@ class MenuFragment : Fragment() {
             findNavController().navigate(action)
         }
         binding.btnMultiMode.setOnClickListener {
-            val action = MenuFragmentDirections.actionMenuFragmentToMultiplayerQuizFragment()
+            val action = MenuFragmentDirections.actionMenuFragmentToMultiplayerSetupFragment()
             findNavController().navigate(action)
         }
 

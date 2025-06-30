@@ -2,10 +2,10 @@ package com.mcshr.sportquiz.di
 
 import com.mcshr.sportquiz.data.MultiplayerRepositoryImpl
 import com.mcshr.sportquiz.data.QuizQuestionRepositoryImpl
-import com.mcshr.sportquiz.data.QuizScoreRepositoryImpl
+import com.mcshr.sportquiz.data.QuizInfoRepositoryImpl
 import com.mcshr.sportquiz.domain.MultiplayerRepository
 import com.mcshr.sportquiz.domain.QuizQuestionRepository
-import com.mcshr.sportquiz.domain.QuizScoreRepository
+import com.mcshr.sportquiz.domain.QuizInfoRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -19,8 +19,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindRepository(
-        impl: QuizScoreRepositoryImpl
-    ): QuizScoreRepository
+        impl: QuizInfoRepositoryImpl
+    ): QuizInfoRepository
 
     @Binds
     @Singleton

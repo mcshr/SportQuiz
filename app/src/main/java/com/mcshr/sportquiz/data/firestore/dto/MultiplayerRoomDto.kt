@@ -7,5 +7,5 @@ data class MultiplayerRoomDto(
     val currentTurn: Int = 1,
     val currentQuestionIndex: Int = 0,
     val status: String = "waiting", // "waiting", "active", "finished"
-    val createdAt: Long = System.currentTimeMillis(),
+    val createdAt: Long? = null,
 )

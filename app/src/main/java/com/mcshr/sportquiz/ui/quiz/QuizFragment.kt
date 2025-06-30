@@ -38,10 +38,10 @@ class QuizFragment : Fragment() {
     private val viewModel: QuizViewModel by viewModels()
     private val optionButtons: List<Button> by lazy {
         listOf(
-            binding.btnOption1,
-            binding.btnOption2,
-            binding.btnOption3,
-            binding.btnOption4
+            binding.layoutQuestion.btnOption1,
+            binding.layoutQuestion.btnOption2,
+            binding.layoutQuestion.btnOption3,
+            binding.layoutQuestion.btnOption4
         )
     }
 
@@ -88,12 +88,12 @@ class QuizFragment : Fragment() {
     }
 
     private fun setupButtons() {
-        binding.btnSkip.setDebounceOnClickListener {
+        binding.layoutQuestion.btnSkip.setDebounceOnClickListener {
             if (isInteractionLocked) return@setDebounceOnClickListener
             viewModel.nextQuestion()
         }
 
-        binding.btnHint.setDebounceOnClickListener {
+        binding.layoutQuestion.btnHint.setDebounceOnClickListener {
             if (isInteractionLocked) return@setDebounceOnClickListener
             val hint = viewModel.currentQuestion.value?.hint
             if (hint.isNullOrBlank()) {
@@ -110,11 +110,11 @@ class QuizFragment : Fragment() {
             }
         }
 
-        binding.btnCheck.setDebounceOnClickListener {
+        binding.layoutQuestion.btnCheck.setDebounceOnClickListener {
             val answer = when (viewModel.mode) {
                 QuizMode.TEST -> selectedOption
                 QuizMode.RIDDLE,
-                QuizMode.EMOJI -> binding.etAnswer.text.toString()
+                QuizMode.EMOJI -> binding.layoutQuestion.etAnswer.text.toString()
             }
 
             if (answer.isNullOrBlank()) {
@@ -123,15 +123,15 @@ class QuizFragment : Fragment() {
             }
 
 
-            val (isCorrect, points) = viewModel.submitAnswer(answer)
+            val quizResult = viewModel.submitAnswer(answer)
 
-            val result = if (isCorrect) {
-                getString(R.string.correct_answer, points.toString())
+            val resultMsg = if (quizResult.isCorrect) {
+                getString(R.string.correct_answer, quizResult.earnedPoints.toString())
             } else {
                 getString(R.string.incorrect_answer)
             }
 
-            showToast(result)
+            showToast(resultMsg)
 
             goToNextQuestionWithDelay()
         }
@@ -225,17 +225,17 @@ class QuizFragment : Fragment() {
 
 
     private fun showQuestion(question: QuizQuestion) {
-        binding.tvQuestion.text = question.text
-        binding.tvQuestionIsNew.isVisible = !question.isPassed
+        binding.layoutQuestion.tvQuestion.text = question.text
+        binding.layoutQuestion.tvQuestionIsNew.isVisible = !question.isPassed
 
         selectedOption = null
 
-        binding.btnHint.visibility = if (question.hint.isNullOrBlank()) View.GONE else View.VISIBLE
+        binding.layoutQuestion.btnHint.visibility = if (question.hint.isNullOrBlank()) View.GONE else View.VISIBLE
 
         when (viewModel.mode) {
             QuizMode.TEST -> {
-                binding.etAnswer.visibility = View.GONE
-                binding.optionsContainer.visibility = View.VISIBLE
+                binding.layoutQuestion.etAnswer.visibility = View.GONE
+                binding.layoutQuestion.optionsContainer.visibility = View.VISIBLE
                 question.options?.forEachIndexed { index, text ->
                     optionButtons[index].text = text
                 }
@@ -244,9 +244,9 @@ class QuizFragment : Fragment() {
 
             QuizMode.RIDDLE,
             QuizMode.EMOJI -> {
-                binding.etAnswer.visibility = View.VISIBLE
-                binding.optionsContainer.visibility = View.GONE
-                binding.etAnswer.text.clear()
+                binding.layoutQuestion.etAnswer.visibility = View.VISIBLE
+                binding.layoutQuestion.optionsContainer.visibility = View.GONE
+                binding.layoutQuestion.etAnswer.text.clear()
             }
         }
 

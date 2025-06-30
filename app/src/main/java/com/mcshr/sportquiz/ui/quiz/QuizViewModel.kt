@@ -1,6 +1,5 @@
 package com.mcshr.sportquiz.ui.quiz
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
@@ -8,7 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mcshr.sportquiz.domain.entity.QuizMode
 import com.mcshr.sportquiz.domain.entity.QuizQuestion
-import com.mcshr.sportquiz.domain.interactors.CalculatePointsUseCase
+import com.mcshr.sportquiz.domain.entity.QuizResult
+import com.mcshr.sportquiz.domain.interactors.CheckAnswerUseCase
 import com.mcshr.sportquiz.domain.interactors.GetQuestionsUseCase
 import com.mcshr.sportquiz.domain.interactors.PassQuestionUseCase
 import com.mcshr.sportquiz.domain.interactors.SaveHighScoreUseCase
@@ -21,7 +21,7 @@ class QuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val getQuestionsUseCase: GetQuestionsUseCase,
     private val saveHighScoreUseCase: SaveHighScoreUseCase,
-    private val calculatePointsUseCase: CalculatePointsUseCase,
+    private val checkAnswerUseCase: CheckAnswerUseCase,
     private val passQuestionUseCase: PassQuestionUseCase
 ) : ViewModel() {
 
@@ -59,13 +59,12 @@ class QuizViewModel @Inject constructor(
         loadQuestions()
     }
 
-    fun loadQuestions(){
+    fun loadQuestions() {
         viewModelScope.launch {
             _loadingState.value = LoadingState.LOADING
             val loaded = getQuestionsUseCase(mode)
             if (loaded.isNotEmpty()) {
                 questions = loaded
-                questions = getQuestionsUseCase(mode)
                 _totalQuestions.value = questions.size
                 loadCurrentQuestion()
                 _loadingState.value = LoadingState.SUCCESS
@@ -81,17 +80,11 @@ class QuizViewModel @Inject constructor(
         _currentQuestionIndex.value = currentIndex + 1
     }
 
-    fun submitAnswer(answer: String): Pair<Boolean, Int> {
-        Log.d("asdasdas","_currentQuestion.value = ${_currentQuestion.value}\n ")
-        val question = _currentQuestion.value ?: return false to 0
-        val isCorrect = question.correctAnswer.any {
-            Log.d("sadasd","it.trim().lowercase() = ${it.trim().lowercase()}\n " +
-                    "answer.trim().lowercase() = ${answer.trim().lowercase()}")
-            it.trim().lowercase() == answer.trim().lowercase()
-        }
-        val earnedPoints = calculatePointsUseCase(isCorrect, hintUsed)
-        _score.value = (_score.value ?: 0) + earnedPoints
-        return isCorrect to earnedPoints
+    fun submitAnswer(answer: String): QuizResult {
+        val question = _currentQuestion.value ?: return QuizResult(false, 0)
+        val result = checkAnswerUseCase(question, answer, hintUsed)
+        _score.value = (_score.value ?: 0) + result.earnedPoints
+        return result
     }
 
     fun saveFinalScore() {

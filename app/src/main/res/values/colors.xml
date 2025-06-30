@@ -8,6 +8,7 @@
     <color name="textPrimary">#FFFFFF</color>
     <color name="textSecondary">#B0BEC5</color>
     <color name="primaryGreen">#0FEE8A</color>
-    <color name="strokeColor">#303030</color>
+    <color name="secondaryYellow">#EAEE0F</color>
+    <color name="strokeColor">#FF303030</color>
 
 </resources>
