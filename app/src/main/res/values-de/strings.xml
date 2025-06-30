@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportQuiz</string>
+    <string name="app_title">SPORT-QUIZ</string>
+    <string name="start_game">SPIEL STARTEN</string>
+    <string name="rules_title">Spielregeln</string>
+
+    <string name="rules_general_title">Allgemeine Regeln</string>
+    <string name="rules_general_text">Wähle einen von drei Modi: Emojis, Rätsel oder Tests.
+        Beantworte Fragen, sammle Punkte und versuche deinen Rekord zu brechen!\n\n
+        •\tRichtige Antwort — 2 Punkte\n
+        •\tWenn Hinweis verwendet — 1 Punkt\n
+        •\tÜbersprungene Frage — 0 Punkte\n
+        \nIm Emoji- und Rätselmodus ist ein Hinweisbutton verfügbar.
+        Im Testmodus — wähle die richtige Antwort aus den Optionen.
+    </string>
+
+    <string name="rules_emoji_title">Emoji-Challenge</string>
+    <string name="rules_emoji_text">Errate Sportler oder Sportart anhand von Emojis.
+        Beispiel: 🏀🐐 bedeutet Michael Jordan.
+    </string>
+
+    <string name="rules_riddle_title">Sporträtsel</string>
+    <string name="rules_riddle_text">Löse sportbezogene Rätsel.
+        Beispiel: „Ist kein Vogel, kann aber fliegen. Wird in einen Korb geworfen“ — das ist der Ball.
+    </string>
+
+    <string name="rules_test_title">Sporttests</string>
+    <string name="rules_test_text">Wähle die richtige Antwort aus vier Optionen.
+        Klassisches Wissens-Check-Format.
+    </string>
+
+    <string name="choose_mode">Modus wählen</string>
+    <string name="emoji_mode">🏀 Emoji-Challenge</string>
+    <string name="riddle_mode">🧠 Sporträtsel</string>
+    <string name="test_mode">📋 Sporttests</string>
+    <string name="total_score_format">Gesamthochpunktzahl: %1$d</string>
+    <string name="score_format">Punkte: %1$d</string>
+
+    <string name="quiz_toolbar_title">Modus: %1$s</string>
+
+    <string name="hint">Hinweis</string>
+    <string name="skip">Überspringen</string>
+    <string name="submit">Prüfen</string>
+
+    <string name="hint_format">Hinweis: %1$s</string>
+    <string name="enter_answer">Antwort eingeben</string>
+    <string name="correct_answer">Richtig! +%1$s</string>
+    <string name="incorrect_answer">Falsch!</string>
+
+    <string name="result_title">Ergebnis</string>
+    <string name="result_mode_emoji">Modus: Emoji-Challenge</string>
+    <string name="result_mode_riddle">Modus: Sporträtsel</string>
+    <string name="result_mode_test">Modus: Sporttests</string>
+    <string name="your_score_format">Dein Ergebnis: %1$d</string>
+    <string name="high_score_format">Dein Rekord in diesem Modus: %1$d</string>
+    <string name="btn_retry">🔁 Nochmal spielen</string>
+    <string name="btn_home">🏠 Startseite</string>
+    <string name="progress_text_format">%1$d / %2$d</string>
+    <string name="ad_not_ready">Werbung noch nicht geladen</string>
+    <string name="singleplayer_mode">Einzelner Spieler</string>
+    <string name="multiplayer_mode">Mehrspieler</string>
+    <string name="rules">Regeln</string>
+    <string name="error_no_room">Der Raum wurde gelöscht oder verloren</string>
+    <string name="try_again">Erneut versuchen</string>
+    <string name="go_to_home_screen">Zur Hauptseite</string>
+    <string name="error_no_questions">Fehler beim Laden der Fragen.</string>
+    <string name="player_score_format">%1$s : %2$s</string>
+    <string name="waiting_for_player">Warte auf anderen Spieler</string>
+    <string name="loading_questions">Fragen werden geladen</string>
+    <string name="not_your_turn">Jetzt ist der andere Spieler am Zug</string>
+
+    <string name="vs">gegen</string>
+    <string name="win">Sieg</string>
+    <string name="lose">Niederlage</string>
+    <string name="draw">Unentschieden</string>
+    <string name="find_game">Spiel finden</string>
+    <string name="enter_nicname">Spitznamen eingeben</string>
+    <string name="your_nickname">Dein Spitzname</string>
+    <string name="new_question">NEU!</string>
+</resources>

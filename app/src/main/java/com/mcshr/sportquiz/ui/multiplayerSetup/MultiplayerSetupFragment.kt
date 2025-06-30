@@ -40,11 +40,11 @@ class MultiplayerSetupFragment : Fragment() {
             }
 
             if (nickname.isBlank()) {
-                Toast.makeText(requireContext(), "Введите никнейм", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.enter_nicname), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (selectedMode == null) {
-                Toast.makeText(requireContext(), "Выберите режим", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.choose_mode), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

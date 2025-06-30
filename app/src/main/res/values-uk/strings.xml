@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportQuiz</string>
+    <string name="app_title">СПОРТИВНА ВІКТОРИНА</string>
+    <string name="start_game">ПОЧАТИ ГРУ</string>
+    <string name="rules_title">Правила гри</string>
+
+    <string name="rules_general_title">Загальні правила</string>
+    <string name="rules_general_text">Обери один з трьох режимів: емодзі, загадки або тести.
+        \nВідповідай на запитання, заробляй бали та намагайся побити свій рекорд!\n\n
+        •\tПравильна відповідь — 2 бали\n
+        •\tЯкщо використано підказку — 1 бал\n
+        •\tПропущене питання — 0 балів\n
+        \nУ режимах Емодзі та Загадки доступна кнопка підказки.
+        У Тестах — обери правильний варіант із запропонованих.
+    </string>
+
+    <string name="rules_emoji_title">Емодзі челендж </string>
+    <string name="rules_emoji_text">Угадай спортсмена або вид спорту за емодзі.
+        \nНаприклад: 🏀🐐 — це Майкл Джордан.
+    </string>
+
+    <string name="rules_riddle_title">Спортивні загадки </string>
+    <string name="rules_riddle_text">Відгадай загадку на спортивну тему.
+        \nНаприклад: "Не птах, а літає, у кільце мене кидають" — це м’яч.
+    </string>
+
+    <string name="rules_test_title">Спортивні тести</string>
+    <string name="rules_test_text">Вибери правильну відповідь із чотирьох варіантів.
+        \nКласичний формат перевірки знань.
+    </string>
+
+
+    <string name="choose_mode">Оберіть режим</string>
+    <string name="emoji_mode">🏀 Емодзі челендж</string>
+    <string name="riddle_mode">🧠 Спортивні загадки</string>
+    <string name="test_mode">📋 Спортивні тести</string>
+    <string name="total_score_format">Загальний рекорд: %1$d</string>
+    <string name="score_format">Рахунок: %1$d</string>
+
+    <string name="quiz_toolbar_title">Режим: %1$s</string>
+
+    <string name="hint">Підказка</string>
+    <string name="skip">Пропустити</string>
+    <string name="submit">Перевірити</string>
+
+    <string name="hint_format">Підказка: %1$s</string>
+    <string name="enter_answer">Введіть відповідь</string>
+    <string name="correct_answer">Правильно! +%1$s</string>
+    <string name="incorrect_answer">Неправильно!</string>
+
+    <string name="result_title">Результат</string>
+    <string name="result_mode_emoji">Режим: Емодзі челендж</string>
+    <string name="result_mode_riddle">Режим: Спортивні загадки</string>
+    <string name="result_mode_test">Режим: Спортивні тести</string>
+    <string name="your_score_format">Ваш результат: %1$d</string>
+    <string name="high_score_format">Ваш рекорд у цьому режимі: %1$d</string>
+    <string name="btn_retry">🔁 Зіграти ще раз</string>
+    <string name="btn_home">🏠 На головну</string>
+    <string name="progress_text_format" translatable="false">%1$d / %2$d</string>
+    <string name="ad_not_ready">Реклама ще не завантажена</string>
+    <string name="singleplayer_mode">Один гравець</string>
+    <string name="multiplayer_mode">Мультиплеєр</string>
+    <string name="rules">Правила</string>
+    <string name="error_no_room">Кімната була видалена або втрачена</string>
+    <string name="try_again">Спробувати ще раз</string>
+    <string name="go_to_home_screen">На головний екран</string>
+    <string name="error_no_questions">Не вдалося завантажити питання.</string>
+    <string name="player_score_format" translatable="false">%1$s : %2$s</string>
+    <string name="waiting_for_player">Очікування іншого гравця</string>
+    <string name="loading_questions">Завантаження питань</string>
+    <string name="not_your_turn">Зараз ходить інший гравець</string>
+
+    <string name="vs" translatable="false">VS</string>
+    <string name="win">Перемога</string>
+    <string name="lose">Поразка</string>
+    <string name="draw">Нічия</string>
+    <string name="find_game">Знайти гру</string>
+    <string name="enter_nicname">Введіть нікнейм</string>
+    <string name="your_nickname">Ваш никнейм</string>
+    <string name="new_question">NEW!</string>
+</resources>

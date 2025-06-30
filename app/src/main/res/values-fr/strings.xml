@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportQuiz</string>
+    <string name="app_title">QUIZ SPORTIF</string>
+    <string name="start_game">DÉMARRER LE JEU</string>
+    <string name="rules_title">Règles du jeu</string>
+
+    <string name="rules_general_title">Règles générales</string>
+    <string name="rules_general_text">Choisissez l\'un des trois modes : emoji, devinettes ou tests.
+        Répondez aux questions, gagnez des points et tentez de battre votre record !\n\n
+        •\tBonne réponse — 2 points\n
+        •\tSi indice utilisé — 1 point\n
+        •\tQuestion sautée — 0 point\n
+        \nDans les modes Emoji et Devinettes, un bouton d\'indice est disponible.
+        Dans le mode Test — choisissez la bonne réponse parmi les options proposées.
+    </string>
+
+    <string name="rules_emoji_title">Défi Emoji</string>
+    <string name="rules_emoji_text">Devinez l\'athlète ou le sport grâce aux emojis.
+        Exemple : 🏀🐐 signifie Michael Jordan.
+    </string>
+
+    <string name="rules_riddle_title">Enigmes sportives</string>
+    <string name="rules_riddle_text">Résolvez des énigmes liées au sport.
+        Exemple : \" Ce n\'est pas un oiseau, mais ça vole. On le jette dans un panier \" — c\'est le ballon.
+    </string>
+
+    <string name="rules_test_title">Tests sportifs</string>
+    <string name="rules_test_text">Choisissez la bonne réponse parmi quatre options.
+        Format classique pour tester vos connaissances.
+    </string>
+
+    <string name="choose_mode">Choisir le mode</string>
+    <string name="emoji_mode">🏀 Défi Emoji</string>
+    <string name="riddle_mode">🧠 Enigmes sportives</string>
+    <string name="test_mode">📋 Tests sportifs</string>
+    <string name="total_score_format">Score total : %1$d</string>
+    <string name="score_format">Points : %1$d</string>
+
+    <string name="quiz_toolbar_title">Mode : %1$s</string>
+
+    <string name="hint">Indice</string>
+    <string name="skip">Passer</string>
+    <string name="submit">Vérifier</string>
+
+    <string name="hint_format">Indice : %1$s</string>
+    <string name="enter_answer">Entrez la réponse</string>
+    <string name="correct_answer">Correct ! +%1$s</string>
+    <string name="incorrect_answer">Incorrect !</string>
+
+    <string name="result_title">Résultat</string>
+    <string name="result_mode_emoji">Mode : Défi Emoji</string>
+    <string name="result_mode_riddle">Mode : Enigmes sportives</string>
+    <string name="result_mode_test">Mode : Tests sportifs</string>
+    <string name="your_score_format">Votre score : %1$d</string>
+    <string name="high_score_format">Votre record dans ce mode : %1$d</string>
+    <string name="btn_retry">🔁 Jouer à nouveau</string>
+    <string name="btn_home">🏠 Accueil</string>
+    <string name="progress_text_format">%1$d / %2$d</string>
+    <string name="ad_not_ready">Publicité non chargée</string>
+    <string name="singleplayer_mode">Un joueur</string>
+    <string name="multiplayer_mode">Multijoueur</string>
+    <string name="rules">Règles</string>
+    <string name="error_no_room">La salle a été supprimée ou perdue</string>
+    <string name="try_again">Réessayer</string>
+    <string name="go_to_home_screen">Aller à l\'écran d\'accueil</string>
+    <string name="error_no_questions">Échec du chargement des questions.</string>
+    <string name="player_score_format">%1$s : %2$s</string>
+    <string name="waiting_for_player">En attente d\'un autre joueur</string>
+    <string name="loading_questions">Chargement des questions</string>
+    <string name="not_your_turn">C\'est le tour de l\'autre joueur</string>
+
+    <string name="vs">VS</string>
+    <string name="win">Victoire</string>
+    <string name="lose">Défaite</string>
+    <string name="draw">Match nul</string>
+    <string name="find_game">Trouver une partie</string>
+    <string name="enter_nicname">Entrez votre pseudonyme</string>
+    <string name="your_nickname">Votre pseudonyme</string>
+    <string name="new_question">NOUVEAU !</string>
+</resources>
